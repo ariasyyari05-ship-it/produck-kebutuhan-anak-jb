@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Produk Digital - Jual Aplikasi Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid white;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-contact {
+            background-color: white;
+            color: #128C7E;
+            padding: 8px 16px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .whatsapp-contact i {
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            background-color: #FFD700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .product-description {
+            color: #555;
+            margin-bottom: 20px;
+            max-height: 200px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .product-description h3 {
+            color: #25D366;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-description ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .product-description li {
+            margin-bottom: 8px;
+        }
+
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: auto;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        .highlight {
+            color: #25D366;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .product-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="https://files.catbox.moe/z2apjb.jpg" alt="Logo Produk">
+                </div>
+                <div>
+                    <h1>Toko Produk Digital</h1>
+                    <div class="tagline">Aplikasi premium untuk kebutuhan digital sehari-hari</div>
+                </div>
+            </div>
+            <div class="whatsapp-contact">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +62 889-8380-3976
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="products-grid">
+            <!-- Produk 1: QRIS ALL PAYMENT -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <h2 class="product-title">QRIS ALL PAYMENT</h2>
+                    <div class="product-price">Rp10.000</div>
+                </div>
+                <div class="product-body">
+                    <div class="product-description">
+                        <h3>QRIS All Payment - Transaksi Cepat Tanpa Ribet!</h3>
+                        <p>Gak perlu KTP, gak perlu ribet proses verifikasi panjang! Aplikasi QRIS All Payment hadir buat bantu transaksimu lebih praktis dan cepat. Dengan cuma satu aplikasi, kamu bisa:</p>
+                        <ul>
+                            <li>Top up game favoritmu kapan saja</li>
+                            <li>Isi kuota internet dan pulsa dengan harga terjangkau</li>
+                            <li>Bayar tagihan PLN, PDAM, dan berbagai tagihan lainnya</li>
+                            <li>Semua transaksi menggunakan QRIS yang aman dan mudah dipakai.</li>
+                        </ul>
+                        <p>Tanpa ribet, tanpa syarat rumit — cuma transaksi yang cepat dan aman buat kebutuhan sehari-hari!</p>
+                    </div>
+                    <button class="whatsapp-btn" onclick="buyProduct('QRIS ALL PAYMENT', '10000')">
+                        <i class="fab fa-whatsapp"></i> Beli Sekarang via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 2: APLIKASI AUTO SAVE CONTACT -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">
+                        <i class="fas fa-address-book"></i>
+                    </div>
+                    <h2 class="product-title">APLIKASI AUTO SAVE CONTACT</h2>
+                    <div class="product-price">Rp5.000</div>
+                </div>
+                <div class="product-body">
+                    <div class="product-description">
+                        <h3>Auto SV Contact - Simpan Kontak Otomatis Saat Dichat!</h3>
+                        <p>Lupa simpan nomor orang yang baru chat ke kamu? Jangan khawatir lagi! Aplikasi Auto SV Contact hadir buat menyelesaikan masalah itu dengan cara yang cerdas.</p>
+                        <p><strong>Fitur utama:</strong></p>
+                        <ul>
+                            <li><strong>Simpan kontak otomatis:</strong> Setiap kali ada orang baru chat ke kamu (via WhatsApp, Telegram, atau aplikasi pesan lain), kontak mereka akan langsung disimpan ke ponselmu tanpa perlu kamu lakukan apa-apa.</li>
+                            <li><strong>Sesuaikan pengaturan:</strong> Kamu bisa pilih mau simpan semua kontak atau hanya kontak yang kamu izinkan.</li>
+                            <li><strong>Ringan dan cepat:</strong> Aplikasi tidak memakan banyak memori dan berjalan di latar belakang tanpa ganggu aktivitasmu.</li>
+                            <li><strong>Tidak lupa nomor lagi:</strong> Jangan khawatir kehilangan nomor orang yang penting yang baru chat ke kamu.</li>
+                        </ul>
+                        <p>Praktis, efisien, dan bikin hidupmu lebih mudah — itu dia Auto SV Contact!</p>
+                    </div>
+                    <button class="whatsapp-btn" onclick="buyProduct('APLIKASI AUTO SAVE CONTACT', '5000')">
+                        <i class="fab fa-whatsapp"></i> Beli Sekarang via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 3: WEB NOKOS -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h2 class="product-title">WEB NOKOS (BUAT JUALAN NOKOS)</h2>
+                    <div class="product-price">Rp10.000</div>
+                </div>
+                <div class="product-body">
+                    <div class="product-description">
+                        <h3>🎉 KEUNTUNGAN BELI NOKOS (NOMOR KOSONG) DI WEB AFIQ 🎉</h3>
+                        <p>Ingin bikin akun sosial, game, atau layanan digital tanpa pakai nomor pribadi? Beli nokos (nomor kosong) di Web AFIQ aja, untungnya banyak banget!</p>
+                        <ul>
+                            <li><span class="highlight">✅ CEPAT SEKALI</span> → Bayar langsung, nomor kosong dikirim dalam menit + kode verifikasi langsung didapat!</li>
+                            <li><span class="highlight">✅ AMAN & TERVERIFIKASI</span> → Nomor virtual bebas banned, sudah siap untuk verifikasi akun apa pun.</li>
+                            <li><span class="highlight">✅ LINDUNGI PRIBADI</span> → Jangan khawatir nomor hp asli kamu bocor atau dapet spam!</li>
+                            <li><span class="highlight">✅ BERAGAM PILIHAN</span> → Ada nokos untuk TikTok, IG, ML, WhatsApp, Netflix, dan banyak lagi.</li>
+                            <li><span class="highlight">✅ HARGA TERJANGKAU</span> → Tanpa biaya tersembunyi, pasti puas deh!</li>
+                            <li><span class="highlight">✅ LAYANAN RAMAH 24/7</span> → Ada masalah? Hubungi aja, langsung ditangani.</li>
+                            <li><span class="highlight">✅ BAYAR GAMPANG</span> → Transfer, e-wallet (GoPay, OVO, Dana), atau kartu kredit.</li>
+                        </ul>
+                    </div>
+                    <button class="whatsapp-btn" onclick="buyProduct('WEB NOKOS (BUAT JUALAN NOKOS)', '10000')">
+                        <i class="fab fa-whatsapp"></i> Beli Sekarang via WhatsApp
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produk 4: APLIKASI SUNTIK SOSMED -->
+            <div class="product-card">
+                <div class="product-header">
+                    <div class="product-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h2 class="product-title">APLIKASI SUNTIK SOSMED</h2>
+                    <div class="product-price">Rp15.000</div>
+                </div>
+                <div class="product-body">
+                    <div class="product-description">
+                        <h3>⚡ KEUNTUNGAN APLIKASI SUNTIK SOSMED KAMI ⚡</h3>
+                        <p>Ingin followers, like, view, atau komentar lebih banyak di sosmed tanpa ribet? Pakai aplikasi suntik kami — cepat, aman, dan hasilnya natural!</p>
+                        <ul>
+                            <li><span class="highlight">✅ 🚀 CEPAT & HASIL NYATA</span> → Hasil muncul dalam hitungan menit setelah pemesanan — followers/like langsung bertambah tanpa menunggu lama.</li>
+                            <li><span class="highlight">✅ 🔒 ANTI BANNED & AMAN</span> → Dibuat dengan sistem yang mengikuti aturan platform (TikTok, Instagram, YouTube, Facebook), jadi akunmu aman dari pemblokiran.</li>
+                            <li><span class="highlight">✅ 🌱 HASIL NATURAL</span> → Tidak terlihat "suntik buatan" — followers/like datang dari akun yang aktif, jadi algoritma sosmed tidak curiga.</li>
+                            <li><span class="highlight">✅ 🎯 BERAGAM PILIHAN LAYANAN</span> → Ada layanan untuk semua sosmed: TikTok, Instagram, YouTube, Facebook.</li>
+                            <li><span class="highlight">✅ 💸 HARGA TERJANGKAU & TRANSPARAN</span> → Paket beragam mulai dari harga murah, tidak ada biaya tersembunyi.</li>
+                            <li><span class="highlight">✅ 📱 MUDAH DIGUNAKAN</span> → Antarmuka aplikasi sederhana, tinggal pilih layanan, masukkan username, bayar, dan tunggu hasilnya!</li>
+                            <li><span class="highlight">✅ 🤝 LAYANAN PELANGGAN RAMAH 24/7</span> → Ada masalah atau pertanyaan? Hubungi tim kami kapan saja.</li>
+                            <li><span class="highlight">✅ 💳 PEMBAYARAN GAMPANG & AMAN</span> → Bisa bayar melalui e-wallet, transfer bank, atau kartu — semua proses aman dan terenkripsi.</li>
+                        </ul>
+                    </div>
+                    <button class="whatsapp-btn" onclick="buyProduct('APLIKASI SUNTIK SOSMED', '15000')">
+                        <i class="fab fa-whatsapp"></i> Beli Sekarang via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Toko Produk Digital. Semua hak dilindungi.</p>
+            <p>Hubungi kami via WhatsApp: <span class="highlight">+62 889-8380-3976</span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Fungsi untuk mengarahkan ke WhatsApp dengan pesan yang sudah disiapkan
+        function buyProduct(productName, productPrice) {
+            const phoneNumber = "6288983803976";
+            const message = `Halo, saya ingin membeli produk:\n\n*${productName}*\nHarga: Rp${parseInt(productPrice).toLocaleString('id-ID')}\n\nBisa diinfokan cara pembeliannya?`;
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // Buka WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+
+        // Tambahkan event listener untuk semua tombol WhatsApp
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.whatsapp-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Efek visual saat tombol diklik
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
